@@ -15,3 +15,4 @@ def divide(a,b):
         raise ZeroDivisionError("division by zero")
     else:
         return a / b
+

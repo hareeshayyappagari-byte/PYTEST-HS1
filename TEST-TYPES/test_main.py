@@ -1,7 +1,7 @@
 import pytest
 
 from main import add,divide,subtract,multiply
-
+from e2e import run
 def test_add(): # Unit Testing - testing the single function
     res = add(3,3)
     assert res == 6
@@ -28,4 +28,18 @@ def test_three():
     print(res)
     assert res == 8
 
+# functional test - checking all the functions / features working or not
+def test_all():
+    assert add(3,5) == 8
+    assert subtract(5,3) == 2
+    assert multiply(3,2) == 6
+    assert divide(4,2) == 2
+
+
+
+# E2E testing - test application/feature as user perspective
+def test_e2e(capsys):
+    run()
+    out_error = capsys.readouterr().out
+    assert "2 + 4 = 6" in out_error
 
